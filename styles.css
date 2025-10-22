@@ -8,10 +8,9 @@ body {
     font-style: normal;
 }
 
-
+/* /////////////////////////////////////////////////////////////// */
 
 .header {
-    border: solid white;
     display: flex;
     justify-content:space-between;
     align-items: center;
@@ -19,21 +18,53 @@ body {
     min-width: 300px;
     margin: 0 auto;
     padding: 0 1rem;
+    position: relative;
+    margin-bottom: 7rem;
 }
 
 .brand {
-    border: solid white;
     display: flex;
     gap: 2rem;
-    margin-left: 10%;
+    margin-left: 10%;    
+    transition: all 0.3s ease;
 
+}
+
+/* ensure image behaves predictably */
+.logo-img {
+    display: block;
+    /* prevents whitespace issues from inline images */
+    width: 250px;
+    /* explicit width */
+    height: 250px;
+    /* explicit height -> makes it square for perfect circle */
+    object-fit: cover;
+    /* crop image to fill the box without distortion */
+    border-radius: 50%;
+    /* makes a circle (since width === height) */
+    border: 2px solid black;
+    /* optional */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    /* optional */
+}
+
+.brand>a:hover {
+    color: white;
+    background-color: black;
+    /* glow color */
+    filter: drop-shadow(0 0 8px white);
 }
 
 
 .nav_items {
-    display: inline-block;
-    border: solid white;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60%;
+    right: 0;
+    z-index: 10;
     gap: .5rem;
+    padding: 5px;
     
 }
 
@@ -41,11 +72,17 @@ body {
     white-space: nowrap;
     /* prevents line breaks */
     border: 5px solid;
-    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    color: white;
+    background-color: black;
+    /* glow color */
+    filter: drop-shadow(0 0 8px white);
 }
 
 .hamburger {
-    display: none;
     cursor: pointer;
     width: 48px;
     height: 48px;
@@ -53,37 +90,22 @@ body {
 }
 
 .hamburger:hover {
-    color: blueviolet;
+    color: white;
     /* glow color */
-    filter: drop-shadow(0 0 8px blueviolet);
+    filter: drop-shadow(0 0 8px white);
 }
 
-/* Hide menu on small screens */
-.nav_items {
-    display: none;
-    flex-direction: column;
-    gap: 1rem;
-    background: #fff;
-    position: absolute;
-    top: 60px;
-    /* just below header */
-    right: 0;
-    width: 200px;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Show menu when active */
-.nav_items.active {
+.active{
     display: flex;
 }
+
+
+
 /* ///////////////////////////////////////////////////////// */
 
 /* Hero Section */
 
 #hero {
-    border: solid white;
     max-width: 1200px;
     min-width: 300px;
     margin: 0 auto;
@@ -132,7 +154,8 @@ body {
 
 .img_intro {
     border: solid white;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
 
 }
 
@@ -176,7 +199,7 @@ body {
         margin: 0 auto;
         padding: 0 1rem;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 15px;
 }
 
@@ -192,36 +215,32 @@ body {
         margin: 0 auto;
         padding: 0 1rem;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+}
+
+.footer > p {
+    text-align: center;
+}
+.socials {
+    order: -1;
+    text-align: center;
 }
 
 
 
 
-@media (max-width: 683px) {
-    .nav_items {
-        display: none;
-    }
-    .hamburger {
-        display: block;
-        cursor: pointer;
-    }
-
-    .brand {
-        margin-left: 0 auto;
-    }
+@media (min-width: 700px) {
     .img_intro {
-        border: solid white;
-        display: block
-
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
     #contact {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
     .footer {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
     .socials {
         order: 0;
@@ -229,20 +248,16 @@ body {
 
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 1024px) {
     .nav_items {
-            display: none;
+            position: static;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
         }
+    
     .hamburger {
-        display: inline-block;
+        display: none;
     }
-    .brand {
-        margin-left: 0;
-    }
-    .hamburger {
-        display: block;
-        cursor: pointer;
-    }
-
-
 }
+

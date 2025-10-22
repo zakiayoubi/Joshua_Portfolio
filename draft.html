@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .menu {
+            display: none;
+        }
+    
+        .menu.show {
+            display: block;
+        }
+    </style>
+    
+</head>
+<body>
+    <button>☰</button>
+
+    <div class="menu">
+        <a href="#">Zaki</a>
+        <a href="#">Mohammad</a>
+        <a href="#">I love you baby</a>
+    </div>
+
+    
+
+    
+<script>
+    const button = document.querySelector('button');
+    const menu = document.querySelector('.menu');
+
+    button.addEventListener('click', () => {
+        menu.classList.toggle('show');
+    });
+</script>
+</body>
+</html>
