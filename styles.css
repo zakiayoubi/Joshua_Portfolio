@@ -8,6 +8,12 @@ body {
     font-style: normal;
 }
 
+.name, #work>h2, #intro>h2, #skills>h2, #contact h2 {
+    font-family: "Pirata One", system-ui;
+    font-weight: 200;
+    font-size: 3rem;
+    font-style: normal;
+}
 /* /////////////////////////////////////////////////////////////// */
 
 .header {
@@ -30,30 +36,10 @@ body {
 
 }
 
-/* ensure image behaves predictably */
-.logo-img {
-    display: block;
-    /* prevents whitespace issues from inline images */
-    width: 250px;
-    /* explicit width */
-    height: 250px;
-    /* explicit height -> makes it square for perfect circle */
-    object-fit: cover;
-    /* crop image to fill the box without distortion */
-    border-radius: 50%;
-    /* makes a circle (since width === height) */
-    border: 2px solid black;
-    /* optional */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    /* optional */
+.getintouch {
+    border: solid white;
 }
 
-.brand>a:hover {
-    color: white;
-    background-color: black;
-    /* glow color */
-    filter: drop-shadow(0 0 8px white);
-}
 
 
 .nav_items {
@@ -70,16 +56,16 @@ body {
 
 .btn {
     white-space: nowrap;
-    /* prevents line breaks */
-    border: 5px solid;
-    transition: all 0.3s ease;
+    color: white;
+    border-radius: 0;
+    font-size: 1.2rem;
 }
 
 .btn:hover {
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: white;
     /* glow color */
-    filter: drop-shadow(0 0 8px white);
+    /* filter: drop-shadow(0 0 4px white); */
 }
 
 .hamburger {
@@ -110,21 +96,26 @@ body {
     min-width: 300px;
     margin: 0 auto;
     padding: 0 1rem;
+    margin-bottom: 7rem;
 }
 .intro_bit {
     max-width: 800px;
+    margin: 2rem 0;
 }
 
 /* ///////////////////////////////////////////////////////// */
 
 /* Work Section */
  
+#work > h2 {
+    margin: 2rem 0;
+}
 #work {
-    border: solid white;
     max-width: 1200px;
     min-width: 300px;
     margin: 0 auto;
     padding: 0 1rem;
+    margin-bottom: 7rem;
 }
 
 .work_container {
@@ -140,60 +131,74 @@ body {
 
 }
 
+.card:hover {
+    cursor: pointer;
+    border: solid white;
+}
+
 /* ////////////////////////////////////////////////////////// */
 /* Bio Section / Intro */
 
+#intro > h2 {
+    margin: 2rem 0;
+}
 #intro {
-    border: solid white;
     max-width: 1200px;
     min-width: 300px;
     margin: 0 auto;
     padding: 0 1rem;
+    margin-bottom: 7rem;
 
 }
 
-.img_intro {
-    border: solid white;
+.intro_text {
     display: grid;
     grid-template-columns: 1fr;
-
+    /* border: solid white; */
 }
 
-.img_intro > div {
-    border: solid white;
-    min-height: 300px;
-    min-width: 300px;
-    max-height: 400px;
-    max-width: 400px;
+
+.intro_text p {
+    /* border: solid purple; */
+    font-size: 15px;
 }
 
-.img_intro > p {
-    max-width: 500px;
-    margin-left: 10px;
-}
-
-.img_intro img {
+.intro_text > img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    /* border: solid green; */
 }
+
+.bioBtn > a {
+    display: block;
+    border: white solid;
+}
+
+.bioBtn {
+    padding: 35px;
+}
+
 
 /* ////////////////////////////////////////////////////////// */
 /* Skills Section */
 
 #skills {
-        border: solid white;
-        max-width: 1200px;
-        min-width: 300px;
-        margin: 0 auto;
-        padding: 0 1rem;
+    max-width: 1200px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    margin-bottom: 7rem;
+}
+
+#skills ul {
+    font-size: 15px;
 }
 
 /* ////////////////////////////////////////////////////////// */
 /* Get in Touch */
 
 #contact {
-        border: solid white;
         max-width: 1200px;
         min-width: 300px;
         margin: 0 auto;
@@ -201,36 +206,62 @@ body {
         display: grid;
         grid-template-columns: 1fr;
         gap: 15px;
+        margin-bottom: 7rem;
 }
 
 .contact_form {
     display: flex;
     flex-direction: column;
+    font-size: 15px;
+}
+
+#contact p {
+    font-size: 15px;
+    padding-right: 15px;
 }
 
 .footer {
-        border: solid white;
-        max-width: 1200px;
-        min-width: 300px;
-        margin: 0 auto;
-        padding: 0 1rem;
-        display: grid;
-        grid-template-columns: 1fr;
+    border: white solid;
+    max-width: 1200px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 7rem;
+    font-size: 15px;
+        
 }
 
 .footer > p {
     text-align: center;
+    border: solid white;
+    width: 25px;
+    height: 25px;
+
 }
+
 .socials {
+    display: flex;
+    justify-content: center;
     order: -1;
     text-align: center;
+    border: white solid;
+}
+
+.socials > a {
+    border: solid white;
+    margin: 0.5rem 1rem;
+    width: 25px;
+    height: 25px;
+
 }
 
 
 
 
 @media (min-width: 700px) {
-    .img_intro {
+    .intro_text {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
@@ -245,6 +276,22 @@ body {
     .socials {
         order: 0;
     }
+
+    .intro_text > img {
+        height: 400px;
+        width: 320px;
+        float: left;
+    }
+
+    .intro_text {
+        display: flex;
+    }
+
+    .bioBtn > a {
+        display: block;
+    }
+
+
 
 }
 
